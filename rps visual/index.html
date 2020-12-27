@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="title">
+            <h1>Let's play rock paper scissors!</h1>
+        </div>
+        <div id="game">
+            <form id="choice">
+                <label for="rock">rock</label>
+                <input id="rock" name="rps" type="radio" value="rock">
+                <label for="paper">paper</label>
+                <input id="paper" name="rps" type="radio" value="paper">
+                <label for="scissors">scissors</label>
+                <input id="scissors" name="rps" type="radio" value="scissors">
+            </form>
+                
+            <script>;
+                function random_item(items)
+                    {
+                    var items = ["rock", "paper", "scissors"];
+                    var compChoice = items[Math.floor(Math.random()*items.length)]
+                    return compChoice;
+                    }     
+                function playerSelect(){
+                    var radios = document.getElementsByName("rps");
+                    for(var radio of radios) {
+                        if(radio.checked){
+                            return radio.value;
+                        }
+                        }
+                }
+                var computer = random_item();
+                var player = playerSelect();
+
+                function rpsGame(player, computer) {
+                    if(player == "rock"){
+                        if(computer == "rock"){
+                            alert("Player chose " + player + ". Computer chose " + computer + "\nIt's a tie!")
+                        }else if (computer == "scissors"){
+                            alert("Player chose " + player + ". Computer chose " + computer + "\nI win!")
+                        }else{
+                            alert("Player chose " + player + ". Computer chose " + computer + "\nI lose!")
+                        }
+                        }
+                }
+            </script>
+                
+            <button onclick="rpsGame()">Let's Play</button>
+
+        </div>
+    </body>
+</html>
