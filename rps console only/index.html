@@ -1,4 +1,19 @@
 <html>
+<style>
+    html {
+        height: 100vh;
+        width: 100%;
+        font-family: sans-serif;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 50%;
+        width: fit-content;
+    }
+
+</style>
 <script>
     
 var playerScore = 0;
@@ -23,26 +38,26 @@ function playRound (playerSelection, computerSelection){
     if(playerSelection === "scissors"){
         if (computerSelection === "rock"){
             return "lose"
-        }else if (computerSelection === "paper"){
+        } else if (computerSelection === "paper"){
             return playerScore++, "win"}
     }else if (playerSelection === computerSelection) {
-        return "tie"
-    }
+        return "tie"}
     }
 function humanPlay(){
-    return prompt("Enter rock paper or scissors").toLowerCase()
+    var human = prompt("Enter rock paper or scissors", "rock").toLowerCase();
+        return human;
     }
 function computerPlay(){
     var items = ["rock", "paper", "scissors"];
     var compChoice = items[Math.floor(Math.random()*items.length)]
     return compChoice;
     }
-const computerSelection = computerPlay();
-const playerSelection = humanPlay();
 
 function game(){
     var i;
     for(i = 0; i < 5; i++){
+        const computerSelection = computerPlay();
+        const playerSelection = humanPlay();
         const results = playRound(playerSelection, computerSelection);
         switch(results){
             case "win":
@@ -59,9 +74,14 @@ function game(){
     }
     if (playerScore > compScore){
         alert("Player: " + playerScore +"\nComputer: " + compScore +"\nI win!")}
-        else {alert("Player: " + playerScore +"\nComputer: " + compScore +"\nI lose!")
+        else if (playerScore === compScore){
+            alert("Player: " + playerScore +"\nComputer: " + compScore +"\nTie!")}
+        else if (compScore > playerScore) {alert("Player: " + playerScore +"\nComputer: " + compScore +"\nI lose!")
         }
     }
-
 </script>
+<section class="game">
+    <h1>Rock Paper Scissors</h1><br>
+    <button onclick="game()">Let's Play</button>
+</section>
 </html>
