@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section {
+    font-family: sans-serif;
+    background-color: rgb(175, 118, 175);
+    height: 100vh;
+    text-align: center;
+}
+.scorebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+}
+.playerhand {
+    transform: rotateY(180deg);
+}
+.choices {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.choices button {
+    background-color:  rgb(136, 157, 168);;
+    color: black;
+    font-size: 20px;
+    padding: 3px;
+    border: black 3px solid;
+    border-radius: 3px;
+    width: auto;
+    cursor: pointer;
+}
